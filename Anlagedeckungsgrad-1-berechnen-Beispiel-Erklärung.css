@@ -106,9 +106,20 @@ li {
     text-align: center;
 }
 
+.link {
+    color: rgb(54, 50, 139);
+}
+
+    .link:visited {
+        color: rgb(54, 50, 139);
+    }
+
+.link2 {
+    padding-left: 30px;
+}
+
 .link2 {
     color: rgb(54, 50, 139);
-    padding-left: 30px;
 }
 
     .link2:visited {
