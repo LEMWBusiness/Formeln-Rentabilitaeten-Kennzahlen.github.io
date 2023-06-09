@@ -17,6 +17,7 @@ body {
 }
 
 .navigationtext {
+    padding: 2%;
     font-size: 40px;
     text-decoration: underline;
     word-wrap: break-word;
