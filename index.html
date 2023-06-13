@@ -2,13 +2,6 @@
 <html>
 <head>
 
-    <script>
-        // Zeigen Sie das Popup-Fenster an, wenn die Seite geladen wird
-        window.onload = function() {
-            var popup = document.getElementById('cookiePopup');
-            popup.style.display = 'block';
-        };
-    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -22,8 +15,16 @@
                 // Hier können Sie entsprechende Maßnahmen ergreifen, um das Tracking abzulehnen.
             }
 
-            // Schließen Sie das Popup-Fenster oder führen Sie andere Aktionen aus, um die Benutzererfahrung fortzusetzen.
+            var popup = document.getElementById('cookiePopup');
+            popup.style.display = 'none';
         }
+    </script>
+    <script>
+        // Zeigen Sie das Popup-Fenster an, wenn die Seite geladen wird
+        window.onload = function() {
+            var popup = document.getElementById('cookiePopup');
+            popup.style.display = 'block';
+        };
     </script>
     
     <div id="cookiePopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border: 1px solid #ccc;">
