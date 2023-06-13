@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-EMD0NM6GL4');
-</script>
+    <script>
+        // Zeigen Sie das Popup-Fenster an, wenn die Seite geladen wird
+        window.onload = function() {
+            var popup = document.getElementById('cookiePopup');
+            popup.style.display = 'block';
+        };
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        function saveCookieDecision(decision) {
+            if (decision === 'accept') {
+                gtag('config', 'G-EMD0NM6GL4');
+            } else if (decision === 'reject') {
+                // Hier können Sie entsprechende Maßnahmen ergreifen, um das Tracking abzulehnen.
+            }
+
+            // Schließen Sie das Popup-Fenster oder führen Sie andere Aktionen aus, um die Benutzererfahrung fortzusetzen.
+        }
+    </script>
+    
+    <div id="cookiePopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border: 1px solid #ccc;">
+        <h2>Cookie-Bestätigung</h2>
+        <p>Diese Website verwendet Cookies für Analysen. Bitte bestätigen Sie, ob Sie der Verwendung von Cookies zustimmen oder sie ablehnen möchten.</p>
+        <button onclick="saveCookieDecision('accept')">Akzeptieren</button>
+        <button onclick="saveCookieDecision('reject')">Ablehnen</button>
+    </div>
+    
     <meta name="keywords" content="Rentabilitäten, Kenzahlen, Formeln, Rentabilität, Formelsammlung, Bilanz, Beispiele, BWL, Übersicht">
    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Formeln-Rentabilitäten-Kennzahlen.css">
     <title>Formeln-Rentabilitäten-Kennzahlen</title>
 
 </head>
-<body>
+    <body>
+    
+    
     <div class="nav">
         <h1 class="navigationtext">Formelsammlung: Übersicht aller Formeln der Rentabilitätskennzahlen</h1>
     </div>
