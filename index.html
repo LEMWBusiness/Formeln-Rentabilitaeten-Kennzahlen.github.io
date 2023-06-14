@@ -32,10 +32,10 @@
 
     var cookieDecision = getCookie('cookieDecision');
     if (!cookieDecision) {
-        window.onload = function () {
+        window.addEventListener('DOMContentLoaded', function () {
             var popup = document.getElementById('cookiePopup');
             popup.style.display = 'block';
-        };
+        });
     } else {
         var popup = document.getElementById('cookiePopup');
         popup.remove();
@@ -48,6 +48,7 @@
 
     <button onclick="saveCookieDecision('reject')" class="button2">Ablehnen</button>
     <button onclick="saveCookieDecision('accept')" class="button1">Akzeptieren</button>
+</div>
 </div>
     <meta name="keywords" content="Rentabilitäten, Kenzahlen, Formeln, Rentabilität, Formelsammlung, Bilanz, Beispiele, BWL, Übersicht">
    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
