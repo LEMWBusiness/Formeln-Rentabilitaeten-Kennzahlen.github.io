@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
+    <script>window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    function saveCookieDecision(decision) {
-        if (decision === 'accept') {
-            gtag('config', 'G-EMD0NM6GL4');
-            document.cookie = "cookieDecision=accept; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-        } else if (decision === 'reject') {
-            document.cookie = "cookieDecision=reject; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-        }
 
-        var banner = document.getElementById('cookieBanner');
-        banner.style.display = 'none';
-    }
 
-    function getCookie(name) {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            if (cookie.indexOf(name + '=') === 0) {
-                return cookie.substring(name.length + 1);
+
+
+
+
+        function saveCookieDecision(decision) {
+            if (decision === 'accept') {
+                gtag('config', 'G-EMD0NM6GL4');
+                document.cookie = "cookieDecision=accept; path=/"; // Speichern der Akzeptanzentscheidung im Cookie
+            } else if (decision === 'reject') {
+                // Hier können Sie entsprechende Maßnahmen ergreifen, um das Tracking abzulehnen.
+                document.cookie = "cookieDecision=reject; path=/"; // Speichern der Ablehnungsentscheidung im Cookie
             }
-        }
-        return null;
-    }
 
-    var cookieDecision = getCookie('cookieDecision');
-    if (!cookieDecision) {
-        var banner = document.createElement('div');
-        banner.id = 'cookieBanner';
-        banner.style.display = 'block';
-        banner.style.position = 'fixed';
-        banner.style.bottom = '0';
-        banner.style.left = '0';
-        banner.style.width = '100%';
-        banner.style.backgroundColor = '#fff';
-        banner.style.padding = '10px';
-        banner.style.borderTop = '1px solid #ccc';
-        banner.style.textAlign = 'center';
-        banner.innerHTML = `
-            
-        `;
-        document.body.appendChild(banner);
-    }
-</script>
-  <div>
-  <p>Diese Website verwendet Cookies für Analysen. Bitte bestätigen Sie, ob Sie der Verwendung von Cookies zustimmen oder sie ablehnen möchten.</p>
-            <button onclick="saveCookieDecision('reject')">Ablehnen</button>
-            <button onclick="saveCookieDecision('accept')">Akzeptieren</button>
+            var popup = document.getElementById('cookiePopup');
+            popup.style.display = 'none';
+        }</script>
+    <script>// Überprüfen, ob das Cookie bereits gesetzt ist oder den Wert "reject" enthält
+        var cookieDecision = getCookie('cookieDecision');
+        if (!cookieDecision || cookieDecision === 'reject') {
+            // Zeigen Sie das Popup-Fenster an, wenn die Entscheidung noch nicht getroffen wurde oder abgelehnt wurde
+            window.onload = function () {
+                var popup = document.getElementById('cookiePopup');
+                popup.style.display = 'block';
+            };
+        } else {
+            // Verstecken Sie das Popup-Fenster, wenn die Entscheidung bereits akzeptiert wurde
+            var popup = document.getElementById('cookiePopup');
+            popup.style.display = 'none';
+        }
+
+        // Funktion zum Auslesen des Cookie-Werts
+        function getCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }</script>
+
+    <div id="cookiePopup" style="display: none; position: fixed; text-align: center; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; border-radius:10px; padding: 30px; border: 1px solid #ccc;">
+        <p class="CookieÜberschrift">Cookie-Bestätigung</p>
+        <p class="CookieText">Diese Website verwendet Cookies für Analysen. Bitte bestätigen Sie, ob Sie der Verwendung von Cookies zustimmen oder sie ablehnen möchten. Weitere Infos zu dem Thema Cookies finden Sie unter dem Punkt "Datenschutz"</p>
+
+        <button onclick="saveCookieDecision('reject')" class="button2">Ablehnen</button>
+        <button onclick="saveCookieDecision('accept')" class="button1">Akzeptieren</button>
     </div>
     <meta name="keywords" content="Rentabilitäten, Kenzahlen, Formeln, Rentabilität, Formelsammlung, Bilanz, Beispiele, BWL, Übersicht">
    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
