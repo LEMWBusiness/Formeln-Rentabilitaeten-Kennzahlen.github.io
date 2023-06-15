@@ -12,16 +12,23 @@
         function enableGoogleAnalytics() {
             gtag('config', 'G-EMD0NM6GL4');
             document.getElementById("cookiePopup").style.display = "none";
+            document.cookie = "cookieConsent=accepted; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+        }
+
+        function hideCookiePopup() {
+            document.getElementById("cookiePopup").style.display = "none";
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-            var acceptButton = document.querySelector(".button1");
-            acceptButton.addEventListener("click", enableGoogleAnalytics);
+            if (document.cookie.indexOf("cookieConsent=accepted") > -1) {
+                hideCookiePopup();
+            } else {
+                var acceptButton = document.querySelector(".button1");
+                acceptButton.addEventListener("click", enableGoogleAnalytics);
 
-            var rejectButton = document.querySelector(".button2");
-            rejectButton.addEventListener("click", function() {
-                document.getElementById("cookiePopup").style.display = "none";
-            });
+                var rejectButton = document.querySelector(".button2");
+                rejectButton.addEventListener("click", hideCookiePopup);
+            }
         });
     </script>
 
@@ -41,7 +48,6 @@
         <button class="button2">Ablehnen</button>
         <button class="button1">Akzeptieren</button>
     </div>
-</body>
     <meta name="keywords" content="Rentabilitäten, Kenzahlen, Formeln, Rentabilität, Formelsammlung, Bilanz, Beispiele, BWL, Übersicht">
    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Formeln-Rentabilitäten-Kennzahlen.css">
