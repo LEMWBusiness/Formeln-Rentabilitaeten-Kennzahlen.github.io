@@ -1,61 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-EMD0NM6GL4');
-
-        function saveCookieDecision(decision) {
-            if (decision === 'accept') {
-                gtag('config', 'G-EMD0NM6GL4');
-                document.cookie = "cookieDecision=accept; path=/"; // Speichern der Akzeptanzentscheidung im Cookie
-            } else if (decision === 'reject') {
-                // Hier können Sie entsprechende Maßnahmen ergreifen, um das Tracking abzulehnen.
-                document.cookie = "cookieDecision=reject; path=/"; // Speichern der Ablehnungsentscheidung im Cookie
-            }
-
-            var popup = document.getElementById('cookiePopup');
-            popup.style.display = 'none';
-        }</script>
-    <script>// Überprüfen, ob das Cookie bereits gesetzt ist oder den Wert "reject" enthält
-        var cookieDecision = getCookie('cookieDecision');
-        if (!cookieDecision || cookieDecision === 'reject') {
-            // Zeigen Sie das Popup-Fenster an, wenn die Entscheidung noch nicht getroffen wurde oder abgelehnt wurde
-            window.onload = function () {
-                var popup = document.getElementById('cookiePopup');
-                popup.style.display = 'block';
-            };
-        } else {
-            // Verstecken Sie das Popup-Fenster, wenn die Entscheidung bereits akzeptiert wurde
-            var popup = document.getElementById('cookiePopup');
-            popup.style.display = 'none';
-        }
-
-        // Funktion zum Auslesen des Cookie-Werts
-        function getCookie(name) {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i].trim();
-                if (cookie.indexOf(name + '=') === 0) {
-                    return cookie.substring(name.length + 1);
-                }
-            }
-            return null;
-        }</script>
-
-    <div id="cookiePopup" style="display: none; position: fixed; text-align: center; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; border-radius:10px; padding: 30px; border: 1px solid #ccc;">
-        <p class="CookieÜberschrift">Cookie-Bestätigung</p>
-        <p class="CookieText">Diese Website verwendet Cookies für Analysen. Bitte bestätigen Sie, ob Sie der Verwendung von Cookies zustimmen oder sie ablehnen möchten. Weitere Infos zu dem Thema Cookies finden Sie unter dem Punkt <a href="Datenschutz.html">Datenschutz</a></p>
-
-        <button onclick="saveCookieDecision('reject')" class="button2">Ablehnen</button>
-        <button onclick="saveCookieDecision('accept')" class="button1">Akzeptieren</button>
-    </div>
-</script>
+    <script src="cookie.js"></script>
     <meta name="keywords" content="Umsatzrentabilität, Berechnung, berechnen, Formel, Definition, Beispiel">
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Umsatzrentabilität-Berechnung-Beispiel-Erklärung.css">
