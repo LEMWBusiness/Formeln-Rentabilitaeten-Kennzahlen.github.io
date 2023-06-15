@@ -1,59 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google Tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-EMD0NM6GL4');
-
-        function saveCookieDecision(decision) {
-            if (decision === 'accept') {
-                gtag('config', 'G-EMD0NM6GL4');
-                document.cookie = "cookieDecision=accept; path=/"; // Speichern der Akzeptanzentscheidung im Cookie
-            } else if (decision === 'reject') {
-                // Hier können Sie entsprechende Maßnahmen ergreifen, um das Tracking abzulehnen.
-                document.cookie = "cookieDecision=reject; path=/"; // Speichern der Ablehnungsentscheidung im Cookie
-            }
-
-            var popup = document.getElementById('cookiePopup');
-            popup.style.display = 'none';
-        }</script>
-    <script>// Überprüfen, ob das Cookie bereits gesetzt ist oder den Wert "reject" enthält
-        var cookieDecision = getCookie('cookieDecision');
-        if (!cookieDecision || cookieDecision === 'reject') {
-            // Zeigen Sie das Popup-Fenster an, wenn die Entscheidung noch nicht getroffen wurde oder abgelehnt wurde
-            window.onload = function () {
-                var popup = document.getElementById('cookiePopup');
-                popup.style.display = 'block';
-            };
-        } else {
-            // Verstecken Sie das Popup-Fenster, wenn die Entscheidung bereits akzeptiert wurde
-            var popup = document.getElementById('cookiePopup');
-            popup.style.display = 'none';
+        function enableGoogleAnalytics() {
+            gtag('config', 'G-EMD0NM6GL4');
+            document.getElementById("cookiePopup").style.display = "none";
+            var expirationDate = new Date();
+            expirationDate.setMonth(expirationDate.getMonth() + 2);
+            document.cookie = "cookieConsent=accepted; expires=" + expirationDate.toUTCString() + "; path=/";
         }
 
-        // Funktion zum Auslesen des Cookie-Werts
-        function getCookie(name) {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = cookies[i].trim();
-                if (cookie.indexOf(name + '=') === 0) {
-                    return cookie.substring(name.length + 1);
-                }
+        function hideCookiePopup() {
+            document.getElementById("cookiePopup").style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (document.cookie.indexOf("cookieConsent=accepted") > -1) {
+                hideCookiePopup();
+            } else {
+                var acceptButton = document.querySelector(".button1");
+                acceptButton.addEventListener("click", enableGoogleAnalytics);
+
+                var rejectButton = document.querySelector(".button2");
+                rejectButton.addEventListener("click", hideCookiePopup);
             }
-            return null;
-        }</script>
+        });
+    </script>
 
-    <div id="cookiePopup" style="display: none; position: fixed; text-align: center; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; border-radius:10px; padding: 30px; border: 1px solid #ccc;">
+    <style>
+        /* CSS-Stile für das Popup */
+        #cookiePopup {
+            /* Fügen Sie Ihre gewünschten Stile hinzu */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cookiePopup" style="display: block; position: fixed; text-align: center; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; border-radius:10px; padding: 30px; border: 1px solid #ccc;">
         <p class="CookieÜberschrift">Cookie-Bestätigung</p>
-        <p class="CookieText">Diese Website verwendet Cookies für Analysen. Bitte bestätigen Sie, ob Sie der Verwendung von Cookies zustimmen oder sie ablehnen möchten. Weitere Infos zu dem Thema Cookies finden Sie unter dem Punkt <a href="Datenschutz.html">Datenschutz</a></p>
+        <p class="CookieText">Diese Website verwendet Cookies für Analysen. Bitte bestätigen Sie, ob Sie der Verwendung von Cookies zustimmen oder sie ablehnen möchten. Weitere Infos zu dem Thema Cookies finden Sie unter dem Punkt "Datenschutz"</p>
 
-        <button onclick="saveCookieDecision('reject')" class="button2">Ablehnen</button>
-        <button onclick="saveCookieDecision('accept')" class="button1">Akzeptieren</button>
+        <button class="button2">Ablehnen</button>
+        <button class="button1">Akzeptieren</button>
     </div>
     <meta name="keywords" content="Anlagedeckungsgrad 1, Anlagedeckung 1, Anlagedeckung 1. Grades, berechnen, Formel, Definition, Beispiel">
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
