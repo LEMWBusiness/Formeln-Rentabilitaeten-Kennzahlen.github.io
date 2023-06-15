@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -12,11 +12,15 @@
             gtag('config', 'G-EMD0NM6GL4');
             document.cookie = "cookieDecision=accept; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
         } else if (decision === 'reject') {
-            document.cookie = "cookieDecision=reject; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+            deleteCookie('cookieDecision');
         }
 
         var popup = document.getElementById('cookiePopup');
         popup.style.display = 'none';
+    }
+
+    function deleteCookie(name) {
+        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
     }
 
     function getCookie(name) {
@@ -38,9 +42,6 @@
         };
     } else if (cookieDecision === 'accept') {
         gtag('config', 'G-EMD0NM6GL4');
-    } else if (cookieDecision === 'reject') {
-        // Handle the rejection case if needed
-        document.cookie = "cookieDecision=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
     }
 </script>
 
@@ -51,6 +52,7 @@
     <button onclick="saveCookieDecision('reject')" class="button2">Ablehnen</button>
     <button onclick="saveCookieDecision('accept')" class="button1">Akzeptieren</button>
 </div>
+
     <meta name="keywords" content="Rentabilitäten, Kenzahlen, Formeln, Rentabilität, Formelsammlung, Bilanz, Beispiele, BWL, Übersicht">
    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Formeln-Rentabilitäten-Kennzahlen.css">
