@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<head>
     <!-- Google Tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
     <script>
@@ -12,7 +11,9 @@
         function enableGoogleAnalytics() {
             gtag('config', 'G-EMD0NM6GL4');
             document.getElementById("cookiePopup").style.display = "none";
-            document.cookie = "cookieConsent=accepted; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+            var expirationDate = new Date();
+            expirationDate.setMonth(expirationDate.getMonth() + 2);
+            document.cookie = "cookieConsent=accepted; expires=" + expirationDate.toUTCString() + "; path=/";
         }
 
         function hideCookiePopup() {
@@ -52,11 +53,7 @@
    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Formeln-Rentabilitäten-Kennzahlen.css">
     <title>Formelsammlung: Übersicht aller Formeln der Rentabilitätskennzahlen</title>
-
-</head>
-    <body>
-    
-    
+ 
     <div class="nav">
         <h1 class="navigationtext">Formelsammlung: Übersicht aller Formeln der Rentabilitätskennzahlen</h1>
     </div>
