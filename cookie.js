@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
     <!-- Google Tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
@@ -36,3 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     rejectButton.addEventListener("click", hideCookiePopup);
 });
     </script>
+
+</head>
+
+</html>
