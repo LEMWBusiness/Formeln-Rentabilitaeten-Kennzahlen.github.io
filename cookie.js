@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <!-- Google Tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMD0NM6GL4"></script>
-    </script> 
 window.dataLayer = window.dataLayer || [];
 function gtag() { dataLayer.push(arguments); }
 gtag('js', new Date());
@@ -37,8 +31,3 @@ document.addEventListener("DOMContentLoaded", function () {
     var rejectButton = document.querySelector(".button2");
     rejectButton.addEventListener("click", hideCookiePopup);
 });
-    </script>
-
-</head>
-
-</html>
