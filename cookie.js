@@ -18,7 +18,7 @@
   }
 
   function hideCookiePopup() {
-    document.getElementById('cookiePopup').style.display = 'none !important';
+    document.getElementById('cookiePopup').style.display = 'none';
   }
 
   function showCookiePopup() {
@@ -36,13 +36,13 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    checkCookieConsent();
-
     var acceptButton = document.querySelector('.button1');
     acceptButton.addEventListener('click', enableGoogleAnalytics);
 
     var rejectButton = document.querySelector('.button2');
     rejectButton.addEventListener('click', hideCookiePopup);
+
+    checkCookieConsent();
   });
 })();
 
@@ -50,5 +50,6 @@ window.addEventListener('load', function () {
   var cookiePopup = document.getElementById('cookiePopup');
   cookiePopup.style.display = 'block';
 });
+
 
 
