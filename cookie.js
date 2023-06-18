@@ -9,15 +9,11 @@
   head.appendChild(gaScript);
 
   // Funktionen für die Cookie-Verarbeitung
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-
   function enableGoogleAnalytics() {
     gtag('config', 'G-EMD0NM6GL4');
     var expirationDate = new Date();
     expirationDate.setMonth(expirationDate.getMonth() + 2);
-    document.cookie = 'cookieConsent=accepted; expires=' + expirationDate.toUTCString() + '; path=/';
+    localStorage.setItem('cookieConsent', 'accepted');
     hideCookiePopup();
   }
 
@@ -29,15 +25,15 @@
     document.getElementById('cookiePopup').style.display = 'block';
   }
 
- function checkCookieConsent() {
-  console.log(document.cookie); // Ausgabe des Cookie-Werts in der Konsole
+  function checkCookieConsent() {
+    console.log(localStorage.getItem('cookieConsent')); // Ausgabe des Cookie-Werts im LocalStorage in der Konsole
 
-  if (document.cookie.indexOf('cookieConsent=accepted') > -1) {
-    hideCookiePopup();
-  } else {
-    showCookiePopup();
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+      hideCookiePopup();
+    } else {
+      showCookiePopup();
+    }
   }
-}
 
   document.addEventListener('DOMContentLoaded', function () {
     checkCookieConsent();
