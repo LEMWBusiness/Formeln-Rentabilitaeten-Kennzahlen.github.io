@@ -28,28 +28,32 @@
     document.getElementById('cookiePopup').style.display = 'block';
   }
 
- function checkCookieConsent() {
-  if (localStorage.getItem('cookieConsent') === 'accepted') {
-    hideCookiePopup();
-  } else {
-    showCookiePopup();
+  function checkCookieConsent() {
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+      hideCookiePopup();
+    } else {
+      showCookiePopup();
+    }
   }
-}
 
   document.addEventListener('DOMContentLoaded', function () {
     checkCookieConsent();
 
     var acceptButton = document.querySelector('.button1');
-    acceptButton.addEventListener('click', enableGoogleAnalytics);
+    acceptButton.addEventListener('click', function() {
+      enableGoogleAnalytics();
+      acceptButton.removeEventListener('click', arguments.callee); // Entfernt das Klick-Ereignis nach dem ersten Klicken
+    });
 
     var rejectButton = document.querySelector('.button2');
     rejectButton.addEventListener('click', hideCookiePopup);
   });
+
+  window.addEventListener('load', function () {
+    var cookiePopup = document.getElementById('cookiePopup');
+    if (localStorage.getItem('cookieConsent') !== 'accepted') {
+      cookiePopup.style.display = 'block';
+    }
+  });
 })();
-
-window.addEventListener('load', function () {
-  var cookiePopup = document.getElementById('cookiePopup');
-  cookiePopup.style.display = 'block';
-});
-
 
