@@ -10,6 +10,9 @@
 
   // Funktionen für die Cookie-Verarbeitung
   function enableGoogleAnalytics() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
     gtag('config', 'G-EMD0NM6GL4');
     var expirationDate = new Date();
     expirationDate.setMonth(expirationDate.getMonth() + 2);
@@ -36,13 +39,13 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    checkCookieConsent();
+
     var acceptButton = document.querySelector('.button1');
     acceptButton.addEventListener('click', enableGoogleAnalytics);
 
     var rejectButton = document.querySelector('.button2');
     rejectButton.addEventListener('click', hideCookiePopup);
-
-    checkCookieConsent();
   });
 })();
 
