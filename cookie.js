@@ -45,3 +45,4 @@
     rejectButton.addEventListener('click', hideCookiePopup);
   });
 })();
+
