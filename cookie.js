@@ -18,7 +18,7 @@
   }
 
   function hideCookiePopup() {
-    document.getElementById('cookiePopup').style.display = 'none';
+    document.getElementById('cookiePopup').style.display = 'none !important';
   }
 
   function showCookiePopup() {
@@ -50,4 +50,5 @@ window.addEventListener('load', function () {
   var cookiePopup = document.getElementById('cookiePopup');
   cookiePopup.style.display = 'block';
 });
+
 
