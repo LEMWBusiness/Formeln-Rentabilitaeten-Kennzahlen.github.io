@@ -29,13 +29,15 @@
     document.getElementById('cookiePopup').style.display = 'block';
   }
 
-  function checkCookieConsent() {
-    if (document.cookie.indexOf('cookieConsent=accepted') > -1) {
-      hideCookiePopup();
-    } else {
-      showCookiePopup();
-    }
+ function checkCookieConsent() {
+  console.log(document.cookie); // Ausgabe des Cookie-Werts in der Konsole
+
+  if (document.cookie.indexOf('cookieConsent=accepted') > -1) {
+    hideCookiePopup();
+  } else {
+    showCookiePopup();
   }
+}
 
   document.addEventListener('DOMContentLoaded', function () {
     checkCookieConsent();
