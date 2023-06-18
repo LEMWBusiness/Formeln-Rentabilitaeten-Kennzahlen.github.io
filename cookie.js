@@ -28,15 +28,13 @@
     document.getElementById('cookiePopup').style.display = 'block';
   }
 
-  function checkCookieConsent() {
-    console.log(localStorage.getItem('cookieConsent')); // Ausgabe des Cookie-Werts im LocalStorage in der Konsole
-
-    if (localStorage.getItem('cookieConsent') === 'accepted') {
-      hideCookiePopup();
-    } else {
-      showCookiePopup();
-    }
+ function checkCookieConsent() {
+  if (localStorage.getItem('cookieConsent') === 'accepted') {
+    hideCookiePopup();
+  } else {
+    showCookiePopup();
   }
+}
 
   document.addEventListener('DOMContentLoaded', function () {
     checkCookieConsent();
