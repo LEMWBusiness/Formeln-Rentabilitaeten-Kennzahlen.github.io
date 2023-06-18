@@ -36,13 +36,12 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    checkCookieConsent();
+  checkCookieConsent();
 
-    var acceptButton = document.querySelector('.button1');
-    acceptButton.addEventListener('click', enableGoogleAnalytics);
+  var acceptButton = document.querySelector('.button1');
+  acceptButton.addEventListener('click', enableGoogleAnalytics);
 
-    var rejectButton = document.querySelector('.button2');
-    rejectButton.addEventListener('click', hideCookiePopup);
-  });
-})();
+  var rejectButton = document.querySelector('.button2');
+  rejectButton.addEventListener('click', hideCookiePopup);
+});
 
