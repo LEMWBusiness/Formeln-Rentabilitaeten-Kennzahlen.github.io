@@ -1,4 +1,33 @@
-  body {
+.button1 {
+    background-color: black;
+    font-size: 25px;
+    height: 55px;
+    width: 210px;
+    border-radius: 5px;
+    margin-left: 2%;
+    color: white;
+
+}
+
+.button2 {
+    background-color: white;
+    font-size: 25px;
+    height: 55px;
+    width: 210px;
+    border-radius: 5px;
+    margin-left: 2%;
+    color: black;
+}
+
+.CookieÜberschrift {
+    font-size: 40px;
+}
+
+.CookieText {
+    font-size: 20px;
+} 
+
+body {
         background-image: linear-gradient(to bottom, #78B2C4, white);
         height: auto;
         margin: 0;
